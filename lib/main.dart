@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -31,7 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.teal,
         title: const Text('MishalLab'),
+      
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
@@ -58,14 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+            backgroundColor: Colors.teal,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: 'Chat',
+            backgroundColor: Colors.teal,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
             label: 'Account',
+            backgroundColor: Colors.teal,
+
           ),
         ],
       ),
@@ -79,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return const ChatScreen();
       case 2:
-        return const AccountScreen();
+        return const AccountPage();
       default:
         return const HomeScreen();
     }
@@ -109,8 +116,8 @@ class HomeScreen extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             _buildButton(context, 'All', Icons.search),
-            _buildButton(context, 'Diabetes', Icons.handshake),
-            _buildButton(context, 'Heart', Icons.favorite_border),
+            _buildButton(context, 'Diabetes', Icons.medication_liquid_outlined),
+            _buildButton(context, 'Heart', Icons.heart_broken),
           ],
         ),
       ],
@@ -137,7 +144,7 @@ class HomeScreen extends StatelessWidget {
             width: 80.0,
             height: 80.0,
             decoration: const BoxDecoration(
-              color: Colors.blue,
+              color: Colors.teal,
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -167,17 +174,35 @@ class ChatScreen extends StatelessWidget {
   }
 }
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
-
+class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Account Screen'),
+    return Scaffold(
+      appBar: AppBar(
+        // Customize the AppBar as needed
+        title: const Text('Settings'),
+        backgroundColor: Colors.teal, // Change the background color
+        actions: <Widget>[
+          // Add action buttons or widgets on the right side of the AppBar
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Handle the search action
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              // Handle the settings action
+            },
+          ),
+        ],
+      ),
+
     );
   }
 }
-
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
@@ -205,3 +230,4 @@ class CartPage extends StatelessWidget {
     );
   }
 }
+
