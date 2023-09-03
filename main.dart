@@ -91,12 +91,71 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen'),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(height: 16.0),
+        const Text(
+          'Search Tests',
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16.0),
+        GridView.count(
+          crossAxisCount: 3, // 3 buttons in a row
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            _buildButton(context, 'All', Icons.search),
+            _buildButton(context, 'Diabetes', Icons.favorite),
+            _buildButton(context, 'Heart', Icons.favorite_border),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildButton(BuildContext context, String text, IconData icon) {
+    return InkWell(
+      onTap: () {
+        // Navigate to the corresponding page when a button is clicked
+        String route;
+        if (text == 'All') {
+          route = '/all';
+        } else if (text == 'Diabetes') {
+          route = '/diabetes';
+        } else {
+          route = '/heart';
+        }
+        Navigator.of(context).pushNamed(route);
+      },
+      child: Column(
+        children: [
+          Container(
+            width: 80.0,
+            height: 80.0,
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              icon,
+              size: 40.0,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 8.0),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 16.0),
+          ),
+        ],
+      ),
     );
   }
 }
-
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
 
