@@ -32,9 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.blue,
         title: const Text('MishalLab'),
-      
+
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.teal,
+            backgroundColor: Color.fromARGB(255, 38, 49, 130),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
