@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//change test
 void main() {
   runApp(const MyApp());
 }
@@ -31,7 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue,
         title: const Text('MishalLab'),
+
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart),
@@ -58,14 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+            backgroundColor: Color.fromARGB(255, 38, 49, 130),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
             label: 'Chat',
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
             label: 'Account',
+            backgroundColor: Colors.blue,
+
           ),
         ],
       ),
@@ -77,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 0:
         return const HomeScreen();
       case 1:
-        return const ChatScreen();
+        return ChatPage();
       case 2:
         return const AccountPage();
       default:
@@ -91,12 +98,71 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Home Screen'),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(height: 16.0),
+        const Text(
+          'Search Tests',
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 16.0),
+        GridView.count(
+          crossAxisCount: 3, // 3 buttons in a row
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            _buildButton(context, 'All', Icons.medical_services),
+            _buildButton(context, 'Diabetes', Icons.medication_liquid_outlined),
+            _buildButton(context, 'Heart', Icons.heart_broken),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildButton(BuildContext context, String text, IconData icon) {
+    return InkWell(
+      onTap: () {
+        // Navigate to the corresponding page when a button is clicked
+        String route;
+        if (text == 'All') {
+          route = '/all';
+        } else if (text == 'Diabetes') {
+          route = '/diabetes';
+        } else {
+          route = '/heart';
+        }
+        Navigator.of(context).pushNamed(route);
+      },
+      child: Column(
+        children: [
+          Container(
+            width: 80.0,
+            height: 80.0,
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              icon,
+              size: 40.0,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 8.0),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 16.0),
+          ),
+        ],
+      ),
     );
   }
 }
-
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
 
@@ -107,18 +173,58 @@ class ChatScreen extends StatelessWidget {
     );
   }
 }
-
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({super.key});
-
+// ignore: use_key_in_widget_constructors
+class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Account Screen'),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold( 
+        appBar: AppBar(
+          title: const Text("Chat with us"),
+        ),
+        body: const Center(
+          child: Icon(
+            Icons.chat_bubble,
+            semanticLabel: 'Chat with us',
+            size: 100.0, // Adjust the size of the icon as needed
+            color: Colors.blue, // Customize the color of the icon
+          ),
+        ),
+      ),
     );
   }
 }
 
+class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // Customize the AppBar as needed
+        title: const Text('Settings'),
+        backgroundColor: Colors.blue, // Change the background color
+        actions: <Widget>[
+          // Add action buttons or widgets on the right side of the AppBar
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              // Handle the search action
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              // Handle the settings action
+            },
+          ),
+        ],
+      ),
+
+    );
+  }
+}
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
@@ -144,61 +250,5 @@ class CartPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-class Account extends StatelessWidget {
-  const Account({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Header Example',
-      home: AccountPage(),
-    );
-  }
-}
-
-class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
-
-  @override
-  
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Customize the AppBar as needed
-        title: const Text('Settings'),
-        actions: [
-            IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () {
-               // ignore: avoid_print
-               print("this work is not very easy");
-              },
-            ),
-          ],
-          bottom: const PreferredSize(
-            preferredSize: Size.fromHeight(40.0),
-            child: Icon(
-              Icons.menu,
-              size: 40.0,
-              color: Colors.teal,
-            ),
-          ),
-        backgroundColor: Colors.teal, // Change the background color
-        
-      ),
-      
-    );
-  }
-}
-// ignore: camel_case_types
-class page extends StatelessWidget {
-  const page({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
