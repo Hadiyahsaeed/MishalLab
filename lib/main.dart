@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Color.fromARGB(255, 38, 49, 130),
+            backgroundColor: Color.fromARGB(255, 23, 35, 129),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.chat),
