@@ -226,7 +226,7 @@ class AccountPage extends StatelessWidget {
             Text(
               '03354789230',
               style: TextStyle(
-                color: Colors.black, // Customize text color
+                color: Color.fromARGB(255, 0, 0, 0), // Customize text color
                 fontSize: 16.0,     // Customize text size
               ),
             ),
