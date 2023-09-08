@@ -197,8 +197,6 @@ class ChatPage extends StatelessWidget {
 }
 
 class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -214,21 +212,35 @@ class AccountPage extends StatelessWidget {
           ),
         ],
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Row(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // PersonWidget
-            PersonWidget(),
+            const Row(
+              children: [
+                PersonWidget(),
 
-            // Text widget on the right side
-            SizedBox(width: 16.0), // Add some space between the widgets
-            Text(
-              '03354789230',
-              style: TextStyle(
-                color: Color.fromARGB(255, 0, 0, 0), // Customize text color
-                fontSize: 16.0,     // Customize text size
-              ),
+                // Text widget on the right side
+                SizedBox(width: 16.0), // Add some space between the widgets
+                Text(
+                  '03354789230',
+                  style: TextStyle(
+                    color: Colors.black, // Customize text color
+                    fontSize: 16.0,     // Customize text size
+                  ),
+                ),
+              ],
+            ),
+
+            // Button below the PersonWidget
+            const SizedBox(height: 16.0), // Add some space above the button
+            ElevatedButton(
+              onPressed: () {
+                // Handle the "MANAGE" button press
+              },
+              child: const Text('MANAGE'),
             ),
           ],
         ),
