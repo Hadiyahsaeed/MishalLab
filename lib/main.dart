@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return ChatPage();
       case 2:
-        return const AccountPage();
+        return AccountPage();
       default:
         return const HomeScreen();
     }
@@ -198,21 +198,14 @@ class ChatPage extends StatelessWidget {
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Customize the AppBar as needed
         title: const Text('Settings'),
-        backgroundColor: Colors.blue, // Change the background color
+        backgroundColor: Colors.blue,
         actions: <Widget>[
-          // Add action buttons or widgets on the right side of the AppBar
-          IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {
-              // Handle the search action
-            },
-          ),
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
@@ -221,7 +214,43 @@ class AccountPage extends StatelessWidget {
           ),
         ],
       ),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Row(
+          children: [
+            // PersonWidget
+            PersonWidget(),
 
+            // Text widget on the right side
+            SizedBox(width: 16.0), // Add some space between the widgets
+            Text(
+              '03354789230',
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0), // Customize text color
+                fontSize: 16.0,     // Customize text size
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PersonWidget extends StatelessWidget {
+  const PersonWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blue,
+      width: 100.0,
+      height: 100.0,
+      child: const Icon(
+        Icons.person,
+        size: 48.0,
+        color: Colors.white,
+      ),
     );
   }
 }
