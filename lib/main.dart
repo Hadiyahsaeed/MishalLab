@@ -279,7 +279,7 @@ class CartPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Your Cart Contents Here'),
+            const Text('No Data available to show!'),
             ElevatedButton(
               onPressed: () {
                 // Navigate back to the home page when the back button is clicked
