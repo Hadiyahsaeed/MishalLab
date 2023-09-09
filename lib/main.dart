@@ -123,12 +123,12 @@ class HomePage extends StatelessWidget {
                 context,
               ),
               _buildIconWithLabel(
-                Icons.search, // Replace with your icon
+                Icons.medical_services, // Replace with your icon
                 'Diabetes', // Label for the second button
                 context,
               ),
               _buildIconWithLabel(
-                Icons.search, // Replace with your icon
+                Icons.heart_broken, // Replace with your icon
                 'Heart', // Label for the third button
                 context,
               ),
@@ -169,3 +169,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
