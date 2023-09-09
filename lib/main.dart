@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mishallab_app/accounts_page.dart';
+import 'package:mishallab_app/cart_page.dart';
+import 'package:mishallab_app/chat_page.dart';
 
 //change test
 void main() {
@@ -82,345 +85,87 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _getPage(int index) {
     switch (index) {
       case 0:
-        return const HomeScreen();
+        return const HomePage();
       case 1:
         return ChatPage();
       case 2:
         return const AccountPage();
       default:
-        return const HomeScreen();
+        return const HomePage();
     }
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SizedBox(height: 16.0),
-        const Text(
-          'Search Tests',
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
+    return Scaffold(
+      body: Column(
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Search Test',
+              style: TextStyle(
+                fontSize: 24, // Adjust the font size as needed
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
-        ),
-        const SizedBox(height: 16.0),
-        GridView.count(
-          crossAxisCount: 3, // 3 buttons in a row
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            _buildButton(context, 'All', Icons.medical_services),
-            _buildButton(context, 'Diabetes', Icons.medication_liquid_outlined),
-            _buildButton(context, 'Heart', Icons.heart_broken),
-          ],
-        ),
-      ],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildIconWithLabel(
+                Icons.search, // Replace with your icon
+                'All', // Label for the first button
+                context,
+              ),
+              _buildIconWithLabel(
+                Icons.search, // Replace with your icon
+                'Diabetes', // Label for the second button
+                context,
+              ),
+              _buildIconWithLabel(
+                Icons.search, // Replace with your icon
+                'Heart', // Label for the third button
+                context,
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildButton(BuildContext context, String text, IconData icon) {
-    return InkWell(
-      onTap: () {
-        // Navigate to the corresponding page when a button is clicked
-        String route;
-        if (text == 'All') {
-          route = '/all';
-        } else if (text == 'Diabetes') {
-          route = '/diabetes';
-        } else {
-          route = '/heart';
-        }
-        Navigator.of(context).pushNamed(route);
-      },
-      child: Column(
-        children: [
-          Container(
-            width: 80.0,
-            height: 80.0,
-            decoration: const BoxDecoration(
-              color: Colors.blue,
-              shape: BoxShape.circle,
-            ),
+  Widget _buildIconWithLabel(IconData icon, String label, BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 80, // Adjust the width of the circular background
+          height: 80, // Adjust the height of the circular background
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blue, // Set the circular background color
+          ),
+          child: Center(
             child: Icon(
               icon,
-              size: 40.0,
-              color: Colors.white,
+              color: Colors.white, // Set the icon color to white
+              size: 32, // Adjust the icon size as needed
             ),
           ),
-          const SizedBox(height: 8.0),
-          Text(
-            text,
-            style: const TextStyle(fontSize: 16.0),
-          ),
-        ],
-      ),
-    );
-  }
-}
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Chat Screen'),
-    );
-  }
-}
-// ignore: use_key_in_widget_constructors
-class ChatPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Chat with us"),
         ),
-        body: const Center(
-          child: Icon(
-            Icons.chat_bubble,
-            semanticLabel: 'Chat with us',
-            size: 100.0, // Adjust the size of the icon as needed
-            color: Colors.blue, // Customize the color of the icon
+        const SizedBox(height: 8), // Space between icon and label
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.blue, // Set the label color to blue
+            fontSize: 16, // Adjust the label font size as needed
           ),
         ),
-      ),
-    );
-  }
-}
-
-class AccountPage extends StatelessWidget {
-  const AccountPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        backgroundColor: Colors.blue,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Handle the settings action
-            },
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // PersonWidget
-            const Row(
-              children: [
-                PersonWidget(),
-
-                // Text widget on the right side
-                SizedBox(width: 16.0), // Add some space between the widgets
-                Text(
-                  '03354789230',
-                  style: TextStyle(
-                    color: Colors.black, // Customize text color
-                    fontSize: 16.0,     // Customize text size
-                  ),
-                ),
-              ],
-            ),
-
-            // Button below the PersonWidget
-            const SizedBox(height: 16.0), // Add some space above the button
-            ElevatedButton(
-              onPressed: () {
-                // Handle the "MANAGE" button press
-              },
-              child: const Text('MANAGE'),
-            ),
-
-            // "About us" button
-            const SizedBox(height: 16.0), // Add some space above the button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle the "About us" button press
-                },
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'About us',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward),
-                  ],
-                ),
-              ),
-            ),
-
-            // "Help" button
-            const SizedBox(height: 16.0), // Add some space above the button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle the "Help" button press
-                },
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Help',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(Icons.business_center), // Icon of a handshake
-                  ],
-                ),
-              ),
-            ),
-
-            // "Call us" button
-            const SizedBox(height: 16.0), // Add some space above the button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle the "Call us" button press
-                },
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Call us',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(Icons.phone), // Icon of a phone
-                  ],
-                ),
-              ),
-            ),
-
-            // "Wallet" button
-            const SizedBox(height: 16.0), // Add some space above the button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle the "Wallet" button press
-                },
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Wallet',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(Icons.account_balance_wallet), // Icon of a wallet
-                  ],
-                ),
-              ),
-            ),
-
-            // "Merge members request" button
-            const SizedBox(height: 16.0), // Add some space above the button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle the "Merge members request" button press
-                },
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Merge members request',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Icon(Icons.people), // Icon of a team
-                  ],
-                ),
-              ),
-            ),
-            // Centered icons
-            const SizedBox(height: 16.0), // Add some space above the icons
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.facebook),
-                // Facebook icon
-
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class PersonWidget extends StatelessWidget {
-  const PersonWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      width: 100.0,
-      height: 100.0,
-      child: const Icon(
-        Icons.person,
-        size: 48.0,
-        color: Colors.white,
-      ),
-    );
-  }
-}class CartPage extends StatelessWidget {
-  const CartPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cart Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Your Cart Contents Here'),
-            ElevatedButton(
-              onPressed: () {
-                // Navigate back to the home page when the back button is clicked
-                Navigator.of(context).pop();
-              },
-              child: const Text('Back to Home'),
-            ),
-          ],
-        ),
-      ),
+      ],
     );
   }
 }
