@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return ChatPage();
       case 2:
-        return AccountPage();
+        return const AccountPage();
       default:
         return const HomeScreen();
     }
@@ -179,7 +179,7 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold( 
+      home: Scaffold(
         appBar: AppBar(
           title: const Text("Chat with us"),
         ),
@@ -197,6 +197,8 @@ class ChatPage extends StatelessWidget {
 }
 
 class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -242,6 +244,136 @@ class AccountPage extends StatelessWidget {
               },
               child: const Text('MANAGE'),
             ),
+
+            // "About us" button
+            const SizedBox(height: 16.0), // Add some space above the button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle the "About us" button press
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'About us',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(Icons.arrow_forward),
+                  ],
+                ),
+              ),
+            ),
+
+            // "Help" button
+            const SizedBox(height: 16.0), // Add some space above the button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle the "Help" button press
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Help',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(Icons.business_center), // Icon of a handshake
+                  ],
+                ),
+              ),
+            ),
+
+            // "Call us" button
+            const SizedBox(height: 16.0), // Add some space above the button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle the "Call us" button press
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Call us',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(Icons.phone), // Icon of a phone
+                  ],
+                ),
+              ),
+            ),
+
+            // "Wallet" button
+            const SizedBox(height: 16.0), // Add some space above the button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle the "Wallet" button press
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Wallet',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(Icons.account_balance_wallet), // Icon of a wallet
+                  ],
+                ),
+              ),
+            ),
+
+            // "Merge members request" button
+            const SizedBox(height: 16.0), // Add some space above the button
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle the "Merge members request" button press
+                },
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Merge members request',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(Icons.people), // Icon of a team
+                  ],
+                ),
+              ),
+            ),
+            // Centered icons
+            const SizedBox(height: 16.0), // Add some space above the icons
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.facebook),
+                // Facebook icon
+
+              ],
+            ),
           ],
         ),
       ),
@@ -265,8 +397,7 @@ class PersonWidget extends StatelessWidget {
       ),
     );
   }
-}
-class CartPage extends StatelessWidget {
+}class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   @override
