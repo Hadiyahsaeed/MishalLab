@@ -410,7 +410,7 @@ class PersonWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('No Data available to show!'),
+            const Text('Your Cart Contents Here'),
             ElevatedButton(
               onPressed: () {
                 // Navigate back to the home page when the back button is clicked
