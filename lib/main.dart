@@ -96,6 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -134,6 +136,88 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
+
+          const SizedBox(height: 16), // Space between sections
+
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Mishal Lab',
+              style: TextStyle(
+                fontSize: 24, // Adjust the font size as needed
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildLabButtonWithIcon(
+                Icons.electric_scooter, // Replace with your icon
+                'Home Sampling', // Label for the first button
+                context,
+              ),
+              _buildLabButtonWithIcon(
+                Icons.pages_sharp, // Replace with your icon
+                'View Reports', // Label for the second button
+                context,
+              ),
+              _buildLabButtonWithIcon(
+                Icons.card_membership, // Replace with your icon
+                'Blue Card', // Label for the third button
+                context,
+              ),
+            ],
+          ),
+          const SizedBox(height: 16), // Space between rows
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildLabButtonWithIcon(
+                Icons.map, // Replace with your icon
+                'Location', // Label for the fourth button
+                context,
+              ),
+              _buildLabButtonWithIcon(
+                Icons.airplanemode_on, // Replace with your icon
+                'Travel Request', // Label for the fifth button
+                context,
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 16), // Space before "Service" heading
+
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text(
+              'Service', // Add the "Service" heading
+              style: TextStyle(
+                fontSize: 24, // Adjust the font size as needed
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildServiceIconWithLabel(
+                Icons.medication_outlined, // Replace with your icon
+                'Medicine', // Label for the first service
+                context,
+              ),
+              _buildServiceIconWithLabel(
+                Icons.radio, // Replace with your icon
+                'Radiology', // Label for the second service
+                context,
+              ),
+              _buildServiceIconWithLabel(
+                Icons.house, // Replace with your icon
+                'Appointment', // Label for the third service
+                context,
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -168,5 +252,66 @@ class HomePage extends StatelessWidget {
       ],
     );
   }
-}
 
+  Widget _buildLabButtonWithIcon(
+      IconData icon, String label, BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: 80, // Adjust the width of the circular background
+          height: 80, // Adjust the height of the circular background
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blue, // Set the circular background color
+          ),
+          child: Center(
+            child: Icon(
+              icon,
+              color: Colors.white, // Set the icon color to white
+              size: 32, // Adjust the icon size as needed
+            ),
+          ),
+        ),
+        const SizedBox(height: 8), // Space between icon and label
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.blue, // Set the label color to blue
+            fontSize: 16, // Adjust the label font size as needed
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildServiceIconWithLabel(
+      IconData icon, String label, BuildContext context) {
+return Column(
+      children: [
+        Container(
+          width: 80, // Adjust the width of the circular background
+          height: 80, // Adjust the height of the circular background
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.blue, // Set the circular background color
+          ),
+          child: Center(
+            child: Icon(
+              icon,
+              color: Colors.white, // Set the icon color to white
+              size: 32, // Adjust the icon size as needed
+            ),
+          ),
+        ),
+        const SizedBox(height: 8), // Space between icon and label
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.blue, // Set the label color to blue
+            fontSize: 16, // Adjust the label font size as needed
+          ),
+        ),
+      ],
+    );
+  }
+}
