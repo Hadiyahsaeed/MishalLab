@@ -1,10 +1,4 @@
-import 'package:mishallab_app/accounts_page.dart';
-
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MyApp());
-}
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});

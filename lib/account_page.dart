@@ -1,22 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:mishallab_app/main.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter Header Example',
-      home: AccountPage(),
-    );
-  }
-}
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
