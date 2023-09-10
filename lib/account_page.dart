@@ -31,7 +31,7 @@ class AccountPage extends StatelessWidget {
                 // Text widget on the right side
                 SizedBox(width: 16.0), // Add some space between the widgets
                 Text(
-                  '03354789230',
+                  '03335104260',
                   style: TextStyle(
                     color: Colors.black, // Customize text color
                     fontSize: 16.0,     // Customize text size
