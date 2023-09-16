@@ -1,6 +1,6 @@
+// ignore_for_file: depend_on_referenced_packages
 import 'package:mishallab_app/models/note_model.dart';
 import 'package:sqflite/sqflite.dart';
-// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 
 class DatabaseHelper {
