@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mishallab_app/aboutus_screen.dart';
+import 'package:mishallab_app/callus_screen.dart';
+import 'package:mishallab_app/help_screen.dart';
+import 'package:mishallab_app/mmr_screen.dart';
+import 'package:mishallab_app/wallet_screen.dart';
+
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -71,7 +77,7 @@ class AccountPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(Icons.arrow_forward),
+                    Icon(Icons.info),
                   ],
                 ),
               ),
@@ -82,7 +88,11 @@ class AccountPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle the "Help" button press
+                  // Navigate to the AboutUsScreen when button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const help_screen()),
+                  );
                 },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,23 +104,23 @@ class AccountPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
-                      Icons.business_center,
-                      size: 32.0, // Increase icon size
-                      color: Colors.blue, // Set icon color to blue
-                    ),
+                    Icon(Icons.handshake),
                   ],
                 ),
               ),
             ),
 
             // "Call us" button
-            const SizedBox(height: 16.0), // Add some space above the button
+           const SizedBox(height: 16.0), // Add some space above the button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle the "Call us" button press
+                  // Navigate to the AboutUsScreen when button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CallUsScreen()),
+                  );
                 },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,23 +132,23 @@ class AccountPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
-                      Icons.phone,
-                      size: 32.0, // Increase icon size
-                      color: Colors.blue, // Set icon color to blue
-                    ),
+                    Icon(Icons.call),
                   ],
                 ),
               ),
             ),
 
             // "Wallet" button
-            const SizedBox(height: 16.0), // Add some space above the button
+           const SizedBox(height: 16.0), // Add some space above the button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle the "Wallet" button press
+                  // Navigate to the AboutUsScreen when button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const WalletScreen()),
+                  );
                 },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -150,11 +160,7 @@ class AccountPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
-                      Icons.account_balance_wallet,
-                      size: 32.0, // Increase icon size
-                      color: Colors.blue, // Set icon color to blue
-                    ),
+                    Icon(Icons.wallet),
                   ],
                 ),
               ),
@@ -166,10 +172,14 @@ class AccountPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle the "Merge members request" button press
+                  // Navigate to the AboutUsScreen when button is pressed
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const mmr_screen()),
+                  );
                 },
                 child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       'Merge members request',
@@ -178,11 +188,7 @@ class AccountPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
-                      Icons.people,
-                      size: 32.0, // Increase icon size
-                      color: Colors.blue, // Set icon color to blue
-                    ),
+                    Icon(Icons.people),
                   ],
                 ),
               ),
@@ -229,18 +235,3 @@ class PersonWidget extends StatelessWidget {
   }
 }
 
-class AboutUsScreen extends StatelessWidget {
-  const AboutUsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('About us'),
-      ),
-      body: const Center(
-        child: Text('Welcome to Mishal Lab'),
-      ),
-    );
-  }
-}
